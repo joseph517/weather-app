@@ -1,0 +1,25 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  background-image: url('../assets/images/img-weather.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  .container-form{
+    .res-container{
+      background-color: #FFFF;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column
+    }
+
+  }
+
+}
