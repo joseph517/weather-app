@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ServiceWeatherService} from './services/service-weather.service'
+import { ServiceWeatherService } from './services/service-weather.service'
+import { MatDialog } from '@angular/material/dialog';
+import { AlertErrComponent } from './components/alert-err/alert-err.component';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +11,16 @@ import {ServiceWeatherService} from './services/service-weather.service'
 export class AppComponent implements OnInit {
   weather: any
   title = 'weather-app';
-  icon : any
+  icon: any
 
-  constructor( private serviceWeatherService: ServiceWeatherService){}
+  constructor(
+    private serviceWeatherService: ServiceWeatherService,
+    public dialog: MatDialog
+  ) { }
+
+  openDialog(): void {
+    this.dialog.open(AlertErrComponent)
+  }
 
   ngOnInit() {
 
@@ -24,10 +33,9 @@ export class AppComponent implements OnInit {
           this.weather = res;
           this.icon = this.serviceWeatherService.getIconWeather(this.weather.weather[0].icon);
         },
-        err => alert('Ciudad incorrecta')
-    )
+        err => this.openDialog()
+      )
   }
-
 
   submitLocation(cityName: HTMLInputElement) {
     this.getWeather(cityName.value)

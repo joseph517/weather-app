@@ -17,7 +17,13 @@
       gap: 20px;
 
       input {
+        border-radius: 25px;
+        padding: 5px 5px 5px 15px;
         font-size: 25px;
+        border-style: none;
+      }
+      input::after{
+        border-style: none;
       }
 
       .frame {
@@ -133,6 +139,7 @@
     }
 
     .res-container {
+      padding-top: 10px;
       background-color: #e0e5ec;
       display: flex;
       flex-wrap: wrap;
